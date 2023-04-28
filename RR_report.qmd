@@ -1,0 +1,139 @@
+---
+title: "Report"
+format: html
+editor: visual
+---
+
+# RR task
+
+# Sevinj Guluyeva 444423
+
+# # Brief Descriptionn of "Discovery" TV Show
+
+```{r}
+discovery_description <- "*Discovery* is an American pay television network that primarily broadcasts documentary and reality programming focused on popular science, technology, history, and culture. The channel is owned by Discovery, Inc. and was first launched in 1985. Some of the network's most popular shows include *MythBusters*, *Shark Week*, *Deadliest Catch*, and *Gold Rush*."
+```
+
+
+```{r}
+print(discovery_description)
+
+```
+
+# Basic Statistics on Viewership or Ratings
+
+```{r}
+discovery_viewership <- "According to data from Statista, *Discovery* was the 11th most-watched cable network in the United States in 2021, with an average of 741 thousand viewers in primetime. The network has also received numerous awards and nominations for its programming, including multiple Primetime Emmy Awards."
+```
+
+```{r}
+print(discovery_viewership)
+```
+# Print the Description, Logo and Statistics
+
+```{r}
+cat(discovery_description, "\n")
+```
+
+
+```{r}
+cat(discovery_viewership, "\n")
+
+```
+
+# Graph of Viewership Over Time
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+year <- c(2019, 2020, 2021)
+```
+ 
+ 
+```{r}
+print(year)
+```
+
+
+```{r}
+viewership <- c(725, 736, 741)
+```
+
+```{r}
+print(viewership)
+
+```
+
+
+```{r}
+viewership_data <- data.frame(year, viewership)
+
+```
+
+```{r}
+print(viewership_data)
+```
+
+# Create a line plot of viewership over time
+
+
+```{r pressure, echo=FALSE}
+ggplot(viewership_data, aes(x = year, y = viewership)) +
+  geom_line() +
+  labs(title = "Viewership of Discovery Network Over Time", x = "Year", y = "Viewership (in thousands)")
+
+```
+
+From the graph we can see how viewership fluctuated over the time. It is on the pick on 2021
+
+
+# Graph of Episode-to-Episode Changes in Viewership
+
+# Create a data frame with viewership data for a fictional show
+
+```{r}
+season <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+episodes_per_season <- c(10, 10, 10, 10, 10, 10, 10, 10, 10, 10)
+viewership <- c(1000, 950, 900, 850, 800, 750, 700, 650, 600, 550)
+viewership_data <- data.frame(season, episodes_per_season, viewership)
+```
+
+```{r}
+print(viewership_data)
+```
+
+# Create a variable for episode number
+
+```{r}
+viewership_data$episode <- 1:nrow(viewership_data)
+
+```
+
+```{r}
+print(viewership_data$episode)
+```
+
+
+# Calculate episode-to-episode changes in viewership
+```{r}
+viewership_data$change <- c(NA, diff(viewership_data$viewership))
+```
+
+```{r}
+print(viewership_data$change)
+```
+
+# Create a line plot of episode-to-episode changes in viewership
+```{r}
+ggplot(viewership_data, aes(x = episodes_per_season, y = change)) +
+  geom_line() +
+  labs(title = "Episode-to-Episode Changes in Viewership", x = "Episode Number", y = "Change in Viewership (in thousands)")
+
+```
+# Observed changes in viewership
+```{r}
+observed_change <- viewership_data$viewership[5] - viewership_data$viewership[3]
+cat("Viewership decreased by", observed_change, "between seasons 3 and 5.")
+```
