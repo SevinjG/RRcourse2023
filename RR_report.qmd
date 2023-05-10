@@ -1,7 +1,28 @@
 ---
-title: "Report"
-format: html
-editor: visual
+title: "Discovery Tv Show Quarto"
+subtitle : "YAML, rendering and parameters"
+author: "Sevinj Guluyeva"
+date: 10/05/2023
+date-format: short
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-expand: 3
+    toc-title: Contents
+    toc-location: body
+    smooth-scroll: true
+    number-sections: true
+    number-depth: 3
+    theme:
+      light: Cosmo
+      dark: darkly
+  docx: default
+execute:
+  echo: fenced
+  warning: false
+  cache: true
+  freeze: true
 ---
 
 # RR task
