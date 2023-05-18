@@ -20,7 +20,7 @@ load(file_path)
 ```
 
 ```{r}
-plot(season_data$viewers, type="l", col="red", lwd=5, xlab = "Episode number", ylab = "1st day TV viewers in the US (millions)")
+plot(season_data$viewers, type="l", col="blue", lwd=5, xlab = "Episode number", ylab = "1st day TV viewers in the US (millions)")
 ```
 
 ```{r}
